@@ -1,0 +1,7 @@
+LIBRARY	Mandelbrot
+
+EXPORTS
+	get_info		@1
+	mandel_proc		@2
+	mandel_free		@3
+	mandel_active	@4

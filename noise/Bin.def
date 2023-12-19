@@ -1,0 +1,7 @@
+LIBRARY	Binary
+
+EXPORTS
+	get_info	@1
+	bin_proc	@2
+	bin_free	@3
+	bin_active  @4

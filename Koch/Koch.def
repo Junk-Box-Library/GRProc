@@ -1,0 +1,7 @@
+LIBRARY	KOCH
+
+EXPORTS
+	get_info	@1
+	koch_proc	@2
+	koch_free	@3
+	koch_active	@4

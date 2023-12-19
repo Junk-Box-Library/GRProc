@@ -1,0 +1,7 @@
+LIBRARY	TRIANGLE
+
+EXPORTS
+	get_info 	@1
+	triangle_proc	@2
+	triangle_free	@3
+	triangle_active	@4

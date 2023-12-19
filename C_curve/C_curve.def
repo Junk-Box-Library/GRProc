@@ -1,0 +1,7 @@
+LIBRARY	C_CURVE
+
+EXPORTS
+	get_info	@1
+	c_curve_proc	@2
+	c_curve_free	@3
+	c_curve_active	@4

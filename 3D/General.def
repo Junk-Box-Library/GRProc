@@ -1,0 +1,7 @@
+LIBRARY	GENERAL
+
+EXPORTS
+	get_info		@1
+	general_proc	@2
+	general_free	@3
+	general_active  @4

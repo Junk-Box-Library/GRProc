@@ -1,0 +1,7 @@
+LIBRARY	LISSAJOUS
+
+EXPORTS
+	get_info			@1
+	lissajous_proc		@2
+	lissajous_free		@3
+	lissajous_active	@4

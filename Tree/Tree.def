@@ -1,0 +1,7 @@
+LIBRARY	TREE
+
+EXPORTS
+	get_info	@1
+	tree_proc	@2
+	tree_free	@3
+	tree_active	@4

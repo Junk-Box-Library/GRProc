@@ -1,0 +1,7 @@
+LIBRARY	FUNC
+
+EXPORTS
+	get_info	@1
+	func_proc	@2
+	func_free	@3
+	func_active @4
