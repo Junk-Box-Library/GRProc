@@ -1,22 +1,19 @@
 ﻿// Bin.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "Bin.h"
 #include "Window.h"
 
 #include "InputNumDLG.h"
 //#include "ProgressBarDLG.h"
 
-
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-
 using namespace jbxl;
 using namespace jbxwl;
-
 
 // 唯一のアプリケーション オブジェクトです。
 CWinApp theApp;
@@ -42,7 +39,6 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 
 
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -64,8 +60,6 @@ BIN_API char* get_info(int n)
 }
 
 
-
-
 /*
 	処理用関数
 		処理不能の場合：  NULL を返す
@@ -76,7 +70,6 @@ BIN_API MSGraph<sWord>* bin_proc(MSGraph<sWord>* vp)
 {
 	MSGraph<sWord>* xp = NULL;
 	
-
 	// 整数値入力用ダイアログ
 	int  val  = 0;
 	BOOL isok = InputNumDLG(_T("数値を入れてください"), &val);
@@ -85,7 +78,6 @@ BIN_API MSGraph<sWord>* bin_proc(MSGraph<sWord>* vp)
 		xp->state = JBXL_GRAPH_CANCEL;
 		return xp;
 	}
-
 
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	// 以下に処理コードを書く
@@ -107,7 +99,8 @@ BIN_API MSGraph<sWord>* bin_proc(MSGraph<sWord>* vp)
 
 	xp->color = vp->color;		// カラーモード
 
-	
+	writeRasFile("TEST", *xp);  // 保存
+
     /////////////////////////////////////////////////////////////////////////////////////////////
     // 処理コードはここまで
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,8 +108,6 @@ BIN_API MSGraph<sWord>* bin_proc(MSGraph<sWord>* vp)
 
 	return xp;
 }
-
-
 
 
 /* 
@@ -128,8 +119,6 @@ BIN_API BOOL  bin_active(void)
 {
 	return FALSE;
 }
-
-
 
 
 /*
@@ -144,8 +133,4 @@ BIN_API void bin_free(MSGraph<sWord>* xp)
 	}
 	return;
 }
-
-
-
-
 

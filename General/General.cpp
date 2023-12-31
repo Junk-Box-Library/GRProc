@@ -1,7 +1,7 @@
 ﻿// General.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "General.h"
 #include "Window.h"
 
@@ -13,12 +13,11 @@
 #define new DEBUG_NEW
 #endif
 
-
 using namespace jbxl;
 using namespace jbxwl;
 
 
-// 唯一のアプリケーション オブジェクトです
+// 唯一のアプリケーション オブジェクトです。
 CWinApp theApp;
 
 using namespace std;
@@ -42,8 +41,6 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 
 
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -52,7 +49,7 @@ GENERAL_API char* get_info(int n)
 {
 	switch(n) {
 	  case 0 : 
-		return "ここにプラグイン名を書く";		// ここにプラグイン名を書く
+		return "プラグイン名";		// ここにプラグイン名を書く
 	  case 1 :
 		return "general_proc";		// 処理用関数の名前
 	  case 2 :
@@ -65,8 +62,6 @@ GENERAL_API char* get_info(int n)
 }
 
 
-
-
 /*
 	処理用関数
 		処理不能の場合：  NULL を返す
@@ -76,60 +71,48 @@ GENERAL_API char* get_info(int n)
 GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 {
 	MSGraph<sWord>* xp = NULL;
-		
 
-	/** /// 整数値入力用ダイアログ
-	/////// 必要な場合はコメントを外す．
-	BOOL isok;
-	int  val = 0;
-	isok = InputNumDLG(_T("ここにメッセージを書く"), &val);
+	/**
+	// 整数値入力用ダイアログ
+	int  val  = 0;
+	BOOL isok = InputNumDLG(_T("数値を入れてください"), &val);
 	if (!isok) {
 		xp = new MSGraph<sWord>();
 		xp->state = JBXL_GRAPH_CANCEL;
 		return xp;
-	}
-	/**/
+	}*/
 
-
-	////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////
 	// 以下に処理コードを書く
-	//		入力 vp, 出力 xp
+	//		入力 vp, 出力 xp, 閾値 val
 	//		vp->xs: 画像のXサイズ，vp->ys: 画像のYサイズ，vp->zs: 画像のZサイズ
-	//		vp->point(i,j): 画像の (i,j) 位置の画素値への参照
+	//		vp->point(i,j,k): 画像の (i,j,k) 位置の画素値への参照
 	//		vp->max: vpの濃度値の最高, vp->min: vpの濃度値の最低
-	//		vp->color: カラーモード  
-	//			GRAPH_COLOR_MONO:	モノクロ 8bi，
-	//			GRAPH_COLOR_RGB16:	RGB 16bit カラー, R5G6B5
-    //			GRAPH_COLOR_RGB:	RGB 8bitx3=24bit カラー, R8G8B8
-	////////////////////////////////////////////////////////////////////////////////
+	//		vp->color: カラーモード  GRAPH_COLOR_MONO: モノクロ，GRAPH_COLOR_RGB: RGBカラー
+    /////////////////////////////////////////////////////////////////////////////////////////////
 
 	xp = new MSGraph<sWord>(vp->xs, vp->ys);
 
-	for (int j=0; j<xp->ys; j++) {
-		for (int i=0; i<xp->xs; i++) {
+	for (int j = 0; j < xp->ys; j++) {
+		for (int i = 0; i < xp->xs; i++) {
 			xp->point(i, j) = vp->point(i, j);
 		}
 	}
-
-	xp->color = vp->color;		// カラーモード	
-
-
-    ////////////////////////////////////////////////////////////////////////////////
+	
+	xp->color = vp->color;		// カラーモード
+	
+    /////////////////////////////////////////////////////////////////////////////////////////////
     // 処理コードはここまで
-    ////////////////////////////////////////////////////////////////////////////////
-
+    //////////////////////////////////////////////////////////////////////////////////////////////
 
 	return xp;
 }
 
 
-
-
 /* 
 	アクティブ判定の関数
-		TRUEを返すと， 入力データ無しでもメニューがアクティブになる．
+		TRUEを返すと，入力データ無しでもアクティブになる．
 		FALSEを返すと，入力データが読み込まれるまでアクティブにならない．
-
 */
 GENERAL_API BOOL  general_active(void)
 {
@@ -137,10 +120,8 @@ GENERAL_API BOOL  general_active(void)
 }
 
 
-
-
 /*
-	メモリ開放用関数（ほとんどの場合，変更する必要はない）
+	メモリ開放用関数
 	　	処理後のメモリ開放用関数
 */
 GENERAL_API void general_free(MSGraph<sWord>* xp)
@@ -151,5 +132,3 @@ GENERAL_API void general_free(MSGraph<sWord>* xp)
 	}
 	return;
 }
-
-
