@@ -4,6 +4,7 @@
     <ClInclude Include="Bin.h">
       <Filter>ヘッダファイル</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

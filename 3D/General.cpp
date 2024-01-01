@@ -1,7 +1,7 @@
 ﻿// General.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "General.h"
 #include "Window.h"
 
@@ -13,12 +13,11 @@
 #define new DEBUG_NEW
 #endif
 
-
 using namespace jbxl;
 using namespace jbxwl;
 
 
-// 唯一のアプリケーション オブジェクトです
+// 唯一のアプリケーション オブジェクトです。
 CWinApp theApp;
 
 using namespace std;
@@ -42,8 +41,6 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 
 
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -52,7 +49,7 @@ GENERAL_API char* get_info(int n)
 {
 	switch(n) {
 	  case 0 : 
-		return "3D";
+		return "3D";		// ここにプラグイン名を書く
 	  case 1 :
 		return "general_proc";		// 処理用関数の名前
 	  case 2 :
@@ -65,8 +62,6 @@ GENERAL_API char* get_info(int n)
 }
 
 
-
-
 /*
 	処理用関数
 		処理不能の場合：  NULL を返す
@@ -76,7 +71,6 @@ GENERAL_API char* get_info(int n)
 GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 {
 	MSGraph<sWord>* xp = NULL;
-		
 
 	/** /// 整数値入力用ダイアログ
 	/////// 必要な場合はコメントを外す．
@@ -90,7 +84,6 @@ GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 	}
 	/**/
 
-
 	////////////////////////////////////////////////////////////////////////////////
 	// 以下に処理コードを書く
 	//		入力 vp, 出力 xp
@@ -100,7 +93,7 @@ GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 	//		vp->color: カラーモード  
 	//			GRAPH_COLOR_MONO:	モノクロ 8bi，
 	//			GRAPH_COLOR_RGB16:	RGB 16bit カラー, R5G6B5
-    //			GRAPH_COLOR_RGB:	RGB 8bitx3=24bit カラー, R8G8B8
+	//			GRAPH_COLOR_RGB:	RGB 8bitx3=24bit カラー, R8G8B8
 	////////////////////////////////////////////////////////////////////////////////
 
 	Vector<> va, vb, vt, et;
@@ -113,25 +106,21 @@ GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 	vt.set(100, 100, 100);
 	et.set(0, 1, 1);
 	MSGraph_Torus(*xp, vt, et, 60, 10, RGB2Word(0xff, 0xff, 0));
-	
+
 	xp->color = GRAPH_COLOR_RGB16;
-
-    ////////////////////////////////////////////////////////////////////////////////
+	
+    /////////////////////////////////////////////////////////////////////////////////////////////
     // 処理コードはここまで
-    ////////////////////////////////////////////////////////////////////////////////
-
+    //////////////////////////////////////////////////////////////////////////////////////////////
 
 	return xp;
 }
 
 
-
-
 /* 
 	アクティブ判定の関数
-		TRUEを返すと， 入力データ無しでもメニューがアクティブになる．
+		TRUEを返すと，入力データ無しでもアクティブになる．
 		FALSEを返すと，入力データが読み込まれるまでアクティブにならない．
-
 */
 GENERAL_API BOOL  general_active(void)
 {
@@ -139,10 +128,8 @@ GENERAL_API BOOL  general_active(void)
 }
 
 
-
-
 /*
-	メモリ開放用関数（ほとんどの場合，変更する必要はない）
+	メモリ開放用関数
 	　	処理後のメモリ開放用関数
 */
 GENERAL_API void general_free(MSGraph<sWord>* xp)
@@ -153,5 +140,3 @@ GENERAL_API void general_free(MSGraph<sWord>* xp)
 	}
 	return;
 }
-
-

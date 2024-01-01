@@ -16,13 +16,9 @@
 #include "tools++.h"
 #include "GraphLib.h"
 
-
 using namespace jbxl;
-
 
 GENERAL_API char* get_info(int n);
 GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp);
 GENERAL_API void general_free(MSGraph<sWord>* vp);
 GENERAL_API BOOL general_active(void);
-
-

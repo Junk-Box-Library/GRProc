@@ -91,11 +91,13 @@ GENERAL_API MSGraph<sWord>* general_proc(MSGraph<sWord>* vp)
 	//		vp->color: カラーモード  GRAPH_COLOR_MONO: モノクロ，GRAPH_COLOR_RGB: RGBカラー
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-	xp = new MSGraph<sWord>(vp->xs, vp->ys);
+	xp = new MSGraph<sWord>(vp->xs, vp->ys, vp->zs);
 
-	for (int j = 0; j < xp->ys; j++) {
-		for (int i = 0; i < xp->xs; i++) {
-			xp->point(i, j) = vp->point(i, j);
+	for (int k = 0; k < xp->zs; k++) {
+		for (int j = 0; j < xp->ys; j++) {
+			for (int i = 0; i < xp->xs; i++) {
+				xp->point(i, j, k) = vp->point(i, j, k);
+			}
 		}
 	}
 	
