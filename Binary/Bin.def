@@ -1,4 +1,4 @@
-LIBRARY	Bin
+﻿LIBRARY	Bin
 
 EXPORTS
 	get_info	@1

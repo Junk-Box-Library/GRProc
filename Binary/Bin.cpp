@@ -88,16 +88,16 @@ BIN_API MSGraph<sWord>* bin_proc(MSGraph<sWord>* vp)
 	//		vp->color: カラーモード  GRAPH_COLOR_MONO: モノクロ，GRAPH_COLOR_RGB: RGBカラー
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-	xp = new MSGraph<sWord>(vp->xs, vp->ys, vp->zs);
+	xp = new MSGraph<sWord>(vp->xs, vp->ys);
 
-	for (int k = 0; k < xp->zs; k++) {
-		for (int j = 0; j < xp->ys; j++) {
-			for (int i = 0; i < xp->xs; i++) {
-				if (vp->point(i, j, k) >= val) xp->point(i, j, k) = vp->max;
-				else                           xp->point(i, j, k) = vp->min;
-			}
+
+	for (int j = 0; j < xp->ys; j++) {
+		for (int i = 0; i < xp->xs; i++) {
+			if (vp->point(i, j) >= val) xp->point(i, j) = vp->max;
+			else                        xp->point(i, j) = vp->min;
 		}
 	}
+
 
 	xp->color = vp->color;		// カラーモード
 
