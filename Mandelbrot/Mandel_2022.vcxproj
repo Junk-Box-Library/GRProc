@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Mandelbrot</ProjectName>
+    <ProjectName>Mandel</ProjectName>
     <ProjectGuid>{AEDC91F2-2138-4BC7-85B6-FD3CDF80CE6E}</ProjectGuid>
     <RootNamespace>Mandel</RootNamespace>
     <Keyword>MFCProj</Keyword>
@@ -107,7 +107,6 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
@@ -120,14 +119,14 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\JunkBox_Lib++\Debug;..\..\JunkBox_Win_Lib\Debug;..\..\CT\Debug;..\..\CTView\CT_MFCLib\Debug;..\..\jpeg-9e\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\MANDEL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\Mandel.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>
       <StackReserveSize>12800000</StackReserveSize>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,7 +149,6 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
@@ -163,16 +161,15 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\JunkBox_Lib++\Debug64;..\..\JunkBox_Win_Lib\Debug64;..\..\CTView\CTLib\x64\Debug;..\..\CTView\CT_MFCLib\x64\Debug;..\..\jpeg-9e\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\MANDEL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\Mandel.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>
       <StackReserveSize>12800000</StackReserveSize>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <AdditionalOptions>/ignore:4286,4098 /NODEFAULTLIB:MSVCRT</AdditionalOptions>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalOptions>/ignore:4286,4098 /NODEFAULTLIB:MSVCRT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -196,7 +193,6 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
@@ -208,12 +204,13 @@
       <AdditionalDependencies>JunkBox_Lib++.lib;JunkBox_Win_Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\JunkBox_Lib++\Release;..\..\JunkBox_Win_Lib\Release;..\..\CT\Release;..\..\CTView\CT_MFCLib\Release;..\..\jpeg-9e\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\MANDEL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\Mandel.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>
       <StackReserveSize>12800000</StackReserveSize>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -237,7 +234,6 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
@@ -249,15 +245,19 @@
       <AdditionalDependencies>JunkBox_Lib++.lib;JunkBox_Win_Lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\JunkBox_Lib++\Release64;..\..\JunkBox_Win_Lib\Release64;..\..\CTView\CTLib\x64\Release;..\..\CTView\CT_MFCLib\x64\Release;..\..\jpeg-9e\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\MANDEL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\Mandel.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>
       <StackReserveSize>12800000</StackReserveSize>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <AdditionalOptions>/ignore:4286,4098 /NODEFAULTLIB:MSVCRT %(AdditionalOptions)</AdditionalOptions>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\JunkBox_Win_Lib\WinLib.rc" />
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mandel.cpp" />
   </ItemGroup>
@@ -266,9 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Mandel.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\..\JunkBox_Win_Lib\WinLib.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
